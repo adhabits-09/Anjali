@@ -37,40 +37,38 @@
 
   <style>
     :root{
-      /* DARK MODE CORE PALETTE */
-      --black: #050505;
-      --dark-bg: #0f0f0f;
-      --card-bg: #18181b;
-      --card-hover: #1f1f23;
-      
-      /* TEXT */
+      /* LIGHT/WHITE THEME */
       --white: #ffffff;
-      --text-muted: #a1a1aa;
-      --text-subtle: #71717a;
+      --off-white: #f8f9fa;
+      --light-gray: #f1f3f4;
+      --border-color: #e5e7eb;
+      
+      /* TEXT - BLACK */
+      --black: #000000;
+      --text-dark: #111111;
+      --text-secondary: #4b5563;
+      --text-muted: #6b7280;
 
-      /* ACCENT (Kept the Purple Branding) */
+      /* ACCENT - Purple retained */
       --accent: #7c3aed;
       --accent-light: #8b5cf6;
-      --accent-glow: rgba(124, 58, 237, 0.4);
+      --accent-glow: rgba(124, 58, 237, 0.3);
     }
     
     *{box-sizing:border-box;margin:0;padding:0}
     
     body{
-      background: var(--black);
-      color: var(--white);
+      background: var(--white);
+      color: var(--text-dark);
       font-family: 'Inter', sans-serif;
       line-height:1.6;
       overflow-x:hidden;
-      /* Subtle texture */
-      background-image: radial-gradient(circle at 15% 50%, rgba(124, 58, 237, 0.05) 0%, transparent 25%),
-                        radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.05) 0%, transparent 25%);
     }
 
     /* Navbar */
     .navbar{
       background: transparent;
-      padding:1.5rem 0;
+      padding:1rem 0;
       position:absolute;
       width:100%;
       top:0;
@@ -78,30 +76,29 @@
       transition:all 0.4s ease;
     }
     .navbar.scrolled{
-      background:rgba(5,5,5,0.95);
+      background:rgba(255,255,255,0.98);
       backdrop-filter:blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      padding:1rem 0;
+      border-bottom: 1px solid var(--border-color);
+      padding:0.8rem 0;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
     }
     .navbar-brand{
       font-family:'Playfair Display',serif;
-      font-size:2rem;
+      font-size:1.6rem;
       font-weight:700;
-      color:var(--white) !important;
+      color:var(--black) !important;
       letter-spacing:-0.5px;
     }
     .nav-link{
-      color:var(--white) !important;
+      color:var(--text-dark) !important;
       font-weight:500;
       margin:0 1rem;
       position:relative;
       transition:all 0.3s ease;
-      opacity: 0.9;
+      font-size: 0.95rem;
     }
     .nav-link:hover{
-      color:var(--white) !important;
-      opacity: 1;
-      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+      color:var(--accent) !important;
     }
     .nav-link::after{
       content:'';
@@ -109,36 +106,37 @@
       bottom:-5px;
       left:0;
       width:0;
-      height:1px;
-      background:var(--white);
+      height:2px;
+      background:var(--accent);
       transition:width 0.3s ease;
     }
     .nav-link:hover::after{
       width:100%;
     }
     .btn-nav{
-      background: var(--card-bg);
+      background: var(--black);
       color: var(--white);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding:0.6rem 1.5rem;
+      border: none;
+      padding:0.5rem 1.2rem;
       border-radius:50px;
       font-weight:600;
+      font-size: 0.9rem;
       transition:all 0.3s ease;
       text-decoration:none;
       display:inline-flex;
       align-items:center;
-      gap:0.5rem;
+      gap:0.4rem;
     }
     .btn-nav:hover{
-      background:var(--white);
-      color:var(--black);
+      background:var(--accent);
+      color:var(--white);
       transform:translateY(-2px);
     }
 
     /* Animations */
     @keyframes pulseGlow {
-      0%,100%{box-shadow:0 0 15px var(--accent-glow);}
-      50%{box-shadow:0 0 25px var(--accent);}
+      0%,100%{box-shadow:0 0 10px var(--accent-glow);}
+      50%{box-shadow:0 0 20px var(--accent);}
     }
     .glow-pulse{
       animation: pulseGlow 3s infinite ease-in-out;
@@ -152,31 +150,31 @@
     .animate-stagger{animation:fadeInUp .6s ease-out forwards;animation-delay:calc(var(--order) * .1s);opacity:0;}
 
     /* Sections */
-    section{padding:80px 0;position:relative;}
+    section{padding:60px 0;position:relative;}
     
-    /* HERO - DARKENED */
+    /* HERO - WHITE THEME */
     .hero-section{
       min-height: 100vh;
-      background: linear-gradient(to bottom, rgba(5,5,5,0.3), var(--black)), url('https://images.unsplash.com/photo-1551847677-dc82d764e1eb?w=1920&h=1080&fit=crop') center/cover;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.9), var(--white)), url('https://images.unsplash.com/photo-1551847677-dc82d764e1eb?w=1920&h=1080&fit=crop') center/cover;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
-      padding:120px 20px 40px;
+      padding:100px 20px 40px;
       position:relative;
       overflow:hidden;
     }
     
     .hero-headline{
-      font-size:3.5rem;
+      font-size:2.8rem;
       font-weight:800;
-      line-height:1.1;
-      margin-bottom:1rem;
-      color:var(--white);
+      line-height:1.15;
+      margin-bottom:0.8rem;
+      color:var(--black);
       letter-spacing: -1px;
     }
     .hero-headline .highlight{
-      color:var(--accent-light);
+      color:var(--accent);
       background: linear-gradient(to right, var(--accent), var(--accent-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -184,11 +182,11 @@
 
     /* Sub-headline styling */
     .hero-subheadline{
-      font-size:1.5rem;
-      font-weight:500;
-      color:var(--text-muted);
-      margin-bottom:2.5rem;
-      max-width: 700px;
+      font-size:1.2rem;
+      font-weight:400;
+      color:var(--text-secondary);
+      margin-bottom:2rem;
+      max-width: 600px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -196,108 +194,102 @@
     .btn-primary-custom{
       display:inline-flex;
       align-items:center;
-      gap:0.75rem;
-      background: var(--white);
-      color: var(--black);
-      padding:1rem 2.5rem;
+      gap:0.5rem;
+      background: var(--black);
+      color: var(--white);
+      padding:0.8rem 1.8rem;
       border-radius:50px;
-      font-weight:700;
-      font-size:1.1rem;
+      font-weight:600;
+      font-size:0.95rem;
       text-decoration:none;
-      border: 1px solid var(--white);
-      transition:all 0.4s ease;
+      border: none;
+      transition:all 0.3s ease;
       cursor:pointer;
-      position: relative;
-      z-index: 1;
     }
     .btn-primary-custom:hover{
-      transform:translateY(-4px);
-      box-shadow: 0 0 30px rgba(255,255,255,0.3);
-      color: var(--black);
+      transform:translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      background: var(--accent);
+      color: var(--white);
     }
 
     .btn-accent-custom{
       display:inline-flex;
       align-items:center;
-      gap:0.75rem;
+      gap:0.5rem;
       background: var(--accent);
       color: var(--white);
-      padding:1rem 2.5rem;
+      padding:0.8rem 1.8rem;
       border-radius:50px;
-      font-weight:700;
-      font-size:1.1rem;
+      font-weight:600;
+      font-size:0.95rem;
       text-decoration:none;
       border: none;
-      transition:all 0.4s ease;
+      transition:all 0.3s ease;
       cursor:pointer;
-      position: relative;
     }
     .btn-accent-custom:hover{
       background: var(--accent-light);
-      transform:translateY(-4px);
-      box-shadow: 0 0 30px var(--accent-glow);
+      transform:translateY(-3px);
+      box-shadow: 0 10px 25px var(--accent-glow);
       color: var(--white);
     }
 
     /* About Section */
     .about-section{
-      background: var(--dark-bg); 
-      border-top: 1px solid rgba(255,255,255,0.05);
+      background: var(--off-white); 
+      border-top: 1px solid var(--border-color);
     }
     .about-img{
       width:100%;
       height:auto;
-      max-height:600px;
-      border-radius:20px;
+      max-height:500px;
+      border-radius:16px;
       object-fit:cover;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-      border: 1px solid rgba(255,255,255,0.1);
-      filter: grayscale(20%); /* Subtle professional touch */
-      transition: filter 0.3s;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      border: 1px solid var(--border-color);
     }
-    .about-img:hover {
-        filter: grayscale(0%);
-    }
-    .about-content {padding-left: 2rem;}
+    .about-content {padding-left: 1rem;}
     
     .stat-card{
-      background: var(--card-bg);
-      padding:2rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.05);
+      background: var(--white);
+      padding:1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
       text-align:center;
       transition:all .3s ease;
       height:100%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
     .stat-card:hover{
-      transform:translateY(-5px);
-      border-color: rgba(255,255,255,0.1);
-      background: var(--card-hover);
+      transform:translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      border-color: var(--accent);
     }
     .counter{
-      font-size:2.8rem;
+      font-size:2.2rem;
       font-weight:800;
-      color:var(--white);
-      margin-bottom: 0.5rem;
+      color:var(--black);
+      margin-bottom: 0.3rem;
     }
-    .stat-card .text-muted{color:var(--text-subtle) !important; font-size: 0.9rem;}
+    .stat-card .text-muted{color:var(--text-muted) !important; font-size: 0.85rem;}
 
     /* Feedback Section */
     .feedback-section{
-      background:var(--black);
+      background:var(--white);
       overflow:hidden;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
     }
     .feedback-viewport{
       overflow:hidden;
-      margin:2rem 0;
+      margin:1.5rem 0;
       mask:linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%);
       -webkit-mask:linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%);
     }
     .feedback-track{
       display:flex;
-      gap:25px;
+      gap:20px;
       width:max-content;
       animation:scrollLeft 40s linear infinite;
     }
@@ -308,17 +300,18 @@
     }
     .feedback-item{
       flex-shrink:0;
-      width:300px;
-      height:450px;
-      border-radius:16px;
+      width:280px;
+      height:380px;
+      border-radius:12px;
       overflow:hidden;
-      transition:all 0.4s ease;
+      transition:all 0.3s ease;
       position:relative;
-      border: 1px solid rgba(255,255,255,0.05);
-      background:var(--card-bg);
+      border: 1px solid var(--border-color);
+      background:var(--white);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
     .feedback-item:hover{
-      transform:scale(1.03);
+      transform:scale(1.02);
       border-color: var(--accent);
     }
     .feedback-item img{
@@ -330,176 +323,179 @@
 
     /* Steps Section */
     .steps-section{
-      background: var(--dark-bg);
+      background: var(--off-white);
     }
     .step-card{
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding:2rem;
-      border:1px solid rgba(255,255,255,0.05);
-      transition:all .4s ease;
+      background: var(--white);
+      border-radius: 12px;
+      padding:1.5rem;
+      border:1px solid var(--border-color);
+      transition:all .3s ease;
       height:100%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
     .step-card:hover{
-      transform:translateY(-8px);
+      transform:translateY(-5px);
       border-color: var(--accent);
-      background: var(--card-hover);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
     .step-number{
-      width:50px; height:50px;
-      background: transparent;
-      border: 2px solid var(--white);
+      width:40px; height:40px;
+      background: var(--black);
       color: var(--white);
       border-radius:50%;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-weight:800;
-      font-size:1.3rem;
+      font-weight:700;
+      font-size:1.1rem;
       flex-shrink:0;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
-    .step-card h3{color:var(--white); font-size: 1.2rem; font-weight: 700;}
-    .step-card p{color:var(--text-muted); font-size: 0.95rem;}
+    .step-card h3{color:var(--black); font-size: 1.1rem; font-weight: 700;}
+    .step-card p{color:var(--text-secondary); font-size: 0.9rem;}
 
     /* FAQ Section */
-    .faq-section{background:var(--black);}
+    .faq-section{background:var(--white);}
     .accordion-item{
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 16px !important;
+      background: var(--off-white);
+      border: 1px solid var(--border-color);
+      border-radius: 12px !important;
       margin-bottom:1rem;
       overflow:hidden;
     }
     .accordion-button{
-      background: var(--card-bg);
-      color: var(--white);
-      padding:1.5rem;
+      background: var(--off-white);
+      color: var(--black);
+      padding:1.2rem;
       font-weight:600;
       border:none;
       box-shadow:none !important;
+      font-size: 0.95rem;
     }
     .accordion-button:not(.collapsed){
-      background: var(--card-bg);
-      color: var(--accent-light);
-    }
-    .accordion-button::after{
-      filter: invert(1);
+      background: var(--off-white);
+      color: var(--accent);
     }
     .accordion-body{
-      background: var(--card-bg);
-      color:var(--text-muted);
-      padding:0 1.5rem 1.5rem;
+      background: var(--off-white);
+      color:var(--text-secondary);
+      padding:0 1.2rem 1.2rem;
+      font-size: 0.9rem;
     }
 
     /* CTA Section */
     .cta-section{
-      background: linear-gradient(180deg, var(--dark-bg) 0%, var(--black) 100%);
+      background: linear-gradient(180deg, var(--off-white) 0%, var(--white) 100%);
       position:relative;
       overflow:hidden;
     }
     .cta-card{
-      background: var(--card-bg);
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.05);
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
     }
     .info-box{
-      background: var(--black);
-      border: 1px solid rgba(255,255,255,0.05);
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      background: var(--off-white);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      border-radius: 8px;
     }
     .info-box strong {
-      color: var(--white);
+      color: var(--black);
       display: block;
       margin-bottom: 0.2rem;
+      font-size: 0.9rem;
     }
     .insta-link{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      color:var(--white);
+      color:var(--accent);
       text-decoration:none;
       font-weight:600;
       transition:all .3s ease;
       margin-top:10px;
-      opacity: 0.8;
+      font-size: 0.95rem;
     }
     .insta-link:hover{
-      opacity: 1;
-      color: var(--accent-light);
+      color: var(--black);
     }
 
     /* Form Popup */
     .form-backdrop{
       position:fixed;inset:0;
-      background:rgba(0,0,0,.9);
-      backdrop-filter:blur(15px);
+      background:rgba(0,0,0,.8);
+      backdrop-filter:blur(10px);
       z-index:9999;
       opacity:0;visibility:hidden;
-      transition:all .4s ease;
+      transition:all .3s ease;
     }
     .form-backdrop.show{opacity:1;visibility:visible;}
     #formContainer{
       position:fixed;top:50%;left:50%;
       transform:translate(-50%,-50%) scale(.9);
       z-index:10000;
-      max-width:500px;width:90%;
+      max-width:420px;width:90%;
       max-height:85vh;
       opacity:0;visibility:hidden;
-      transition:all .4s ease;
+      transition:all .3s ease;
     }
     #formContainer.show{
       opacity:1;visibility:visible;
       transform:translate(-50%,-50%) scale(1);
     }
     .form-card{
-      background: var(--card-bg);
-      border-radius: 24px;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.05);
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
+      border: 1px solid var(--border-color);
     }
     .form-control,.form-select{
-      background: var(--black);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--white);
-      padding:0.8rem 1rem;
-      border-radius: 12px;
+      background: var(--off-white);
+      border: 1px solid var(--border-color);
+      color: var(--black);
+      padding:0.7rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
     }
     .form-control:focus,.form-select:focus{
-      background: var(--black);
+      background: var(--white);
       border-color: var(--accent);
-      color: var(--white);
-      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1);
+      color: var(--black);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
     }
     .form-label{
-      color:var(--text-muted);
+      color:var(--text-secondary);
       font-weight:500;
-      margin-bottom:0.5rem;
+      margin-bottom:0.4rem;
+      font-size: 0.9rem;
     }
     .btn-submit{
-      background: var(--white);
-      color: var(--black);
+      background: var(--black);
+      color: var(--white);
       border:none;
-      padding:1rem;
+      padding:0.9rem;
       width:100%;
-      border-radius: 12px;
-      font-weight:700;
-      font-size:1.1rem;
+      border-radius: 10px;
+      font-weight:600;
+      font-size:1rem;
       transition:all 0.3s ease;
-      margin-top: 1rem;
+      margin-top: 0.5rem;
     }
     .btn-submit:hover{
+      background: var(--accent);
       transform:translateY(-2px);
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
 
     /* Privacy Policy Modal */
     .pp-overlay{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.95);
-      backdrop-filter:blur(15px);
+      background:rgba(0,0,0,0.85);
+      backdrop-filter:blur(10px);
       z-index:10001;
       opacity:0;
       visibility:hidden;
@@ -513,17 +509,17 @@
       position:fixed;
       top:50%; left:50%;
       transform:translate(-50%,-50%) scale(0.95);
-      width:90%; max-width:560px;
-      max-height:86vh;
-      background: var(--card-bg);
-      border-radius: 24px;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+      width:90%; max-width:500px;
+      max-height:80vh;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
       display:flex;
       flex-direction:column;
       opacity:0; visibility:hidden;
       transition:all 0.3s ease;
       z-index:10002;
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
     }
     .pp-overlay.show .pp-modal{
       opacity:1; visibility:visible;
@@ -533,152 +529,152 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:1.5rem;
-      border-bottom:1px solid rgba(255,255,255,0.05);
+      padding:1.2rem;
+      border-bottom:1px solid var(--border-color);
     }
     .pp-title{
-      font-size:1.25rem;
+      font-size:1.1rem;
       font-weight:700;
-      color:var(--white);
+      color:var(--black);
     }
     .pp-close{
       background:none; border:none;
       font-size:1.5rem;
-      color:var(--text-subtle);
+      color:var(--text-muted);
       cursor:pointer;
       transition:color 0.2s;
     }
-    .pp-close:hover{ color:var(--white); }
+    .pp-close:hover{ color:var(--black); }
     .pp-body{
-      padding:1.5rem;
+      padding:1.2rem;
       overflow-y:auto;
-      font-size:0.95rem;
+      font-size:0.9rem;
       line-height:1.6;
-      color:var(--text-muted);
+      color:var(--text-secondary);
     }
     .pp-body h3{
-      font-size:1rem;
+      font-size:0.95rem;
       font-weight:600;
-      margin:1.5rem 0 0.5rem;
-      color:var(--white);
+      margin:1.2rem 0 0.5rem;
+      color:var(--black);
     }
     .pp-body h3:first-child{ margin-top:0; }
     .pp-footer{
       margin-top:1rem;
       padding-top:1rem;
-      border-top:1px solid rgba(255,255,255,0.05);
-      font-size:0.85rem;
+      border-top:1px solid var(--border-color);
+      font-size:0.8rem;
       font-weight:600;
       text-align:center;
-      color:var(--text-subtle);
+      color:var(--text-muted);
     }
 
     /* Footer */
     .footer{
-      background: #000000;
-      padding:60px 0 30px;
-      border-top:1px solid rgba(255,255,255,0.05);
+      background: var(--black);
+      padding:50px 0 25px;
+      border-top:1px solid var(--border-color);
     }
     .footer-brand{
       font-family:'Playfair Display',serif;
-      font-size:2rem;
+      font-size:1.8rem;
       font-weight:700;
       margin-bottom:1rem;
       color:var(--white);
     }
     .footer-text{
       color:var(--text-muted);
-      font-size:0.95rem;
-      line-height:1.8;
+      font-size:0.9rem;
+      line-height:1.7;
     }
     .social-icons{
       display:flex;
-      gap:1rem;
-      margin-top:1.5rem;
+      gap:0.8rem;
+      margin-top:1.2rem;
     }
     .social-icon{
-      width:44px;
-      height:44px;
+      width:40px;
+      height:40px;
       border-radius:50%;
-      background: var(--card-bg);
+      background: rgba(255,255,255,0.1);
       display:flex;
       align-items:center;
       justify-content:center;
       color:var(--white);
       transition:all 0.3s ease;
       text-decoration:none;
-      border: 1px solid rgba(255,255,255,0.1);
     }
     .social-icon:hover{
-      background:var(--white);
-      color:var(--black);
+      background:var(--accent);
+      color:var(--white);
       transform:translateY(-3px);
     }
     .footer h5{
       font-weight:600;
-      margin-bottom:1.5rem;
+      margin-bottom:1.2rem;
       color:var(--white);
-    }
-    .footer-input{
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--white);
-      padding:0.75rem;
-      border-radius:8px;
-      width:100%;
-      margin-bottom:0.75rem;
-    }
-    .btn-subscribe{
-      background: var(--white);
-      color: var(--black);
-      border:none;
-      padding:0.75rem;
-      width:100%;
-      font-weight:700;
-      border-radius:8px;
-      transition:all 0.3s ease;
-    }
-    .btn-subscribe:hover{
-      opacity: 0.9;
+      font-size: 1rem;
     }
     .footer-links{
       list-style:none;
       padding:0;
     }
     .footer-links li{
-      margin-bottom:0.75rem;
+      margin-bottom:0.6rem;
     }
     .footer-links a{
       color:var(--text-muted);
       text-decoration:none;
       transition:all 0.3s ease;
+      font-size: 0.9rem;
     }
     .footer-links a:hover{
       color:var(--white);
-      padding-left: 5px;
+      padding-left: 3px;
     }
     .copyright{
       text-align:center;
-      padding-top:30px;
-      margin-top:30px;
-      border-top:1px solid rgba(255,255,255,0.05);
-      color:var(--text-subtle);
-      font-size:0.9rem;
+      padding-top:25px;
+      margin-top:25px;
+      border-top:1px solid rgba(255,255,255,0.1);
+      color:var(--text-muted);
+      font-size:0.85rem;
     }
 
     /* Mobile Responsiveness */
     @media(max-width:768px){
-      section{padding:60px 0;}
-      .hero-section{padding:120px 20px 60px; min-height: auto;}
-      .hero-headline{font-size:2.2rem;}
-      .hero-subheadline{font-size:1.1rem;}
+      section{padding:50px 0;}
+      .hero-section{padding:90px 20px 40px; min-height: auto;}
+      
+      /* HEADLINE 2-3 LINES ON PHONE */
+      .hero-headline{
+        font-size:1.9rem;
+        line-height:1.2;
+        margin-bottom:0.6rem;
+      }
+      .hero-subheadline{
+        font-size:1rem;
+        margin-bottom:1.5rem;
+      }
+      
+      .btn-primary-custom, .btn-accent-custom{
+        padding:0.7rem 1.5rem;
+        font-size:0.9rem;
+      }
+      
       .about-content {padding-left: 0;}
-      .feedback-item{width:260px;height:350px;}
-      .counter{font-size:2rem;}
-      h1{font-size:2rem !important;}
-      h2{font-size:1.5rem !important;}
-      .pp-modal{width:92%;border-radius: 20px;}
+      .feedback-item{width:240px;height:320px;}
+      .counter{font-size:1.8rem;}
+      .step-card{padding:1.2rem;}
+      .stat-card{padding:1.2rem;}
+      
+      h2{font-size:1.6rem !important;}
+      .pp-modal{width:92%;border-radius: 16px;}
+      
+      .navbar-brand{font-size:1.4rem;}
+      .btn-nav{padding:0.4rem 1rem;font-size:0.85rem;}
     }
+    
     @media(prefers-reduced-motion:reduce){
       *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
       .feedback-track{animation:none !important;}
@@ -691,7 +687,7 @@
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">Anjali Yadav</a>
-    <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: var(--border-color);">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -702,8 +698,8 @@
         <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
       </ul>
       <a href="#" class="btn-nav open-any" data-source="Navbar">
-        <i data-lucide="message-circle" width="18"></i>
-        JOIN WHATSAPP
+        <i data-lucide="message-circle" width="16"></i>
+        JOIN
       </a>
     </div>
   </div>
@@ -712,23 +708,23 @@
 <!-- Hero Section -->
 <section class="hero-section" id="home">
   <div class="container position-relative">
-    <div class="badge-custom mb-4 animate-stagger" style="--order:1; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem; border-radius: 50px; display: inline-block; font-size: 0.9rem;">
-      💼 Skill-Based Income for Women
-    </div>
+    <!-- SKILL BADGE REMOVED -->
     
-    <!-- MAIN HEADLINE - 2 Lines -->
-    <h1 class="hero-headline animate-stagger" style="--order:2;">
-      Join over <span class="highlight">5000+</span><br>
-      Working Professional, students<br>and housewives
+    <!-- MAIN HEADLINE - Phone pe 2-3 lines mein -->
+    <h1 class="hero-headline animate-stagger" style="--order:1;">
+      Join over <span class="highlight">5000+</span> Working<br class="d-none d-md-block">
+      Professional, students<br>
+      and housewives
     </h1>
     
     <!-- SUB-HEADLINE -->
-    <p class="hero-subheadline animate-stagger" style="--order:3;">
-      who have successfully built their income online with
+    <p class="hero-subheadline animate-stagger" style="--order:2;">
+      who have successfully built their income online
     </p>
     
-    <button class="btn-primary-custom open-any animate-stagger" data-source="Hero Button" style="--order:4;">
-      <i data-lucide="message-circle" width="24"></i>
+    <!-- SMALLER BUTTON -->
+    <button class="btn-primary-custom open-any animate-stagger" data-source="Hero Button" style="--order:3;">
+      <i data-lucide="message-circle" width="18"></i>
       Connect on WhatsApp
     </button>
   </div>
@@ -737,42 +733,42 @@
 <!-- About Section -->
 <section class="about-section py-5" id="about">
   <div class="container">
-    <div class="row g-5 align-items-center">
+    <div class="row g-4 align-items-center">
       <div class="col-lg-5 animate-stagger" style="--order:1;">
         <img src="https://i.ibb.co/PG2YhYC1/anjali-final-pic.jpg" alt="Anjali Yadav - Sales & Productivity Coach" class="about-img" loading="lazy">
       </div>
       <div class="col-lg-7 animate-stagger about-content" style="--order:2;">
-        <h2 class="display-5 fw-bold mb-3" style="color:var(--white);">Hi, I'm Anjali</h2>
-        <h3 class="h4 mb-4" style="color:var(--text-muted); font-weight: 400;">Sales & Productivity Coach</h3>
+        <h2 class="display-6 fw-bold mb-2" style="color:var(--black);">Hi, I'm Anjali</h2>
+        <h3 class="h5 mb-3" style="color:var(--accent); font-weight: 500;">Sales & Productivity Coach</h3>
         
-        <div class="mb-4">
-          <p class="mb-3" style="color:var(--text-muted);">With over a decade of experience in personal development and leadership coaching, I've helped thousands of individuals discover their true potential. My approach is simple: practical, results-driven, and tailored for the modern woman.</p>
+        <div class="mb-3">
+          <p class="mb-2" style="color:var(--text-secondary); font-size: 0.95rem;">With over a decade of experience in personal development and leadership coaching, I've helped thousands of individuals discover their true potential.</p>
           
-          <p class="mb-4" style="color:var(--text-muted);">I started this journey when I realized that many talented women were held back not by lack of skill, but by limiting beliefs. Today, I'm passionate about empowering you to break through those barriers.</p>
+          <p class="mb-3" style="color:var(--text-secondary); font-size: 0.95rem;">I started this journey when I realized that many talented women were held back not by lack of skill, but by limiting beliefs. Today, I'm passionate about empowering you to break through those barriers.</p>
         </div>
         
-        <button class="btn-accent-custom mb-5 open-any" data-source="About Section">
-          <i data-lucide="message-circle" width="20"></i>
+        <button class="btn-accent-custom mb-4 open-any" data-source="About Section">
+          <i data-lucide="message-circle" width="18"></i>
           Connect on WhatsApp
         </button>
         
-        <div class="row g-3">
-          <div class="col-md-4">
+        <div class="row g-2">
+          <div class="col-4">
             <div class="stat-card">
               <div class="counter" data-target="10" data-suffix="+">0</div>
-              <div class="text-muted">Years Experience</div>
+              <div class="text-muted small">Years Exp.</div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-4">
             <div class="stat-card">
               <div class="counter" data-target="5000" data-suffix="+">0</div>
-              <div class="text-muted">Women Helped</div>
+              <div class="text-muted small">Women Helped</div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-4">
             <div class="stat-card">
               <div class="counter" data-target="100" data-suffix="%">0</div>
-              <div class="text-muted">Support Available</div>
+              <div class="text-muted small">Support</div>
             </div>
           </div>
         </div>
@@ -783,15 +779,14 @@
 
 <!-- Feedback Section -->
 <section class="feedback-section" id="feedback">
-  <div class="container-fluid px-4">
+  <div class="container-fluid px-3">
     <div class="text-center mb-2">
-      <h2 class="text-center display-5 fw-bold mb-3 animate-stagger" style="--order:1; color:var(--white);">Real Success Stories</h2>
-      <p class="text-center mb-5 animate-stagger" style="--order:2; color:var(--text-muted);">See authentic feedback from our thriving community</p>
+      <h2 class="text-center display-6 fw-bold mb-2" style="--order:1; color:var(--black);">Real Success Stories</h2>
+      <p class="text-center mb-4" style="--order:2; color:var(--text-secondary); font-size: 0.95rem;">See authentic feedback from our thriving community</p>
     </div>
     
-    <div class="feedback-viewport animate-stagger" style="--order:3;">
+    <div class="feedback-viewport" style="--order:3;">
       <div class="feedback-track">
-        <!-- Images loop -->
         <div class="feedback-item"><img src="https://i.ibb.co/231M53c0/IMG-8687.png" alt="Success 1" loading="lazy"></div>
         <div class="feedback-item"><img src="https://i.ibb.co/84GMLftq/IMG-8689.png" alt="Success 2" loading="lazy"></div>
         <div class="feedback-item"><img src="https://i.ibb.co/BV1HvYw1/IMG-8754.jpg" alt="Success 3" loading="lazy"></div>
@@ -800,7 +795,7 @@
         <div class="feedback-item"><img src="https://i.ibb.co/n8BtYQyv/IMG-8815.png" alt="Success 6" loading="lazy"></div>
         <div class="feedback-item"><img src="https://i.ibb.co/N6c4w7Nx/IMG-8816.jpg" alt="Success 7" loading="lazy"></div>
         <div class="feedback-item"><img src="https://i.ibb.co/Gvg3r43T/IMG-8817.jpg" alt="Success 8" loading="lazy"></div>
-        <!-- Duplicate for infinite loop -->
+        <!-- Duplicate -->
         <div class="feedback-item"><img src="https://i.ibb.co/231M53c0/IMG-8687.png" alt="Success 1" loading="lazy"></div>
         <div class="feedback-item"><img src="https://i.ibb.co/84GMLftq/IMG-8689.png" alt="Success 2" loading="lazy"></div>
         <div class="feedback-item"><img src="https://i.ibb.co/BV1HvYw1/IMG-8754.jpg" alt="Success 3" loading="lazy"></div>
@@ -808,9 +803,9 @@
       </div>
     </div>
     
-    <div class="text-center mt-5">
+    <div class="text-center mt-4">
       <button class="btn-primary-custom open-any" data-source="Feedback Section">
-        <i data-lucide="message-circle" width="20"></i>
+        <i data-lucide="message-circle" width="18"></i>
         Join Our Success Stories
       </button>
     </div>
@@ -820,42 +815,42 @@
 <!-- Steps Section -->
 <section class="steps-section py-5">
   <div class="container">
-    <h2 class="text-center display-5 fw-bold mb-2" style="color:var(--white);">What Happens When You Join?</h2>
-    <p class="text-center mb-5" style="color:var(--text-muted);">Your journey to financial independence starts here</p>
+    <h2 class="text-center display-6 fw-bold mb-2" style="color:var(--black);">What Happens When You Join?</h2>
+    <p class="text-center mb-4" style="color:var(--text-secondary); font-size: 0.95rem;">Your journey to financial independence starts here</p>
     
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
+    <div class="row g-3">
+      <div class="col-6 col-lg-3">
         <div class="step-card">
           <div class="step-number">1</div>
-          <h3 class="h5 fw-bold mb-2">Instant Connection</h3>
-          <p class="mb-0">Get direct WhatsApp access to Anjali for personal guidance and onboarding.</p>
+          <h3 class="h6 fw-bold mb-1">Instant Connection</h3>
+          <p class="mb-0 small">Direct WhatsApp access for guidance</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
+      <div class="col-6 col-lg-3">
         <div class="step-card">
           <div class="step-number">2</div>
-          <h3 class="h5 fw-bold mb-2">Complete Access</h3>
-          <p class="mb-0">Receive our proprietary step-by-step training system designed for fast growth.</p>
+          <h3 class="h6 fw-bold mb-1">Complete Access</h3>
+          <p class="mb-0 small">Step-by-step training system</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
+      <div class="col-6 col-lg-3">
         <div class="step-card">
           <div class="step-number">3</div>
-          <h3 class="h5 fw-bold mb-2">Daily Mentorship</h3>
-          <p class="mb-0">24/7 support, community access, and weekly live calls to answer your questions.</p>
+          <h3 class="h6 fw-bold mb-1">Daily Mentorship</h3>
+          <p class="mb-0 small">24/7 support & community</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
+      <div class="col-6 col-lg-3">
         <div class="step-card">
           <div class="step-number">4</div>
-          <h3 class="h5 fw-bold mb-2">Start Earning</h3>
-          <p class="mb-0">Begin implementing strategies from Week 1 with complete clarity and confidence.</p>
+          <h3 class="h6 fw-bold mb-1">Start Earning</h3>
+          <p class="mb-0 small">Begin from Week 1</p>
         </div>
       </div>
     </div>
-    <div class="text-center mt-5">
+    <div class="text-center mt-4">
       <button class="btn-accent-custom open-any" data-source="Steps">
-        <i data-lucide="message-circle" width="20"></i>
+        <i data-lucide="message-circle" width="18"></i>
         Get Started Now
       </button>
     </div>
@@ -865,12 +860,12 @@
 <!-- FAQ Section -->
 <section class="faq-section" id="faq">
   <div class="container">
-    <div class="text-center mb-5">
-        <h2 class="display-5 fw-bold" style="color:var(--white);">Frequently Asked <span style="color:var(--accent-light)">Questions</span></h2>
+    <div class="text-center mb-4">
+        <h2 class="display-6 fw-bold" style="color:var(--black);">Frequently Asked <span style="color:var(--accent);">Questions</span></h2>
     </div>
     
     <div class="row justify-content-center">
-      <div class="col-lg-9">
+      <div class="col-lg-8">
         <div class="accordion" id="faqAccordion">
           <div class="accordion-item">
             <h2 class="accordion-header">
@@ -880,7 +875,7 @@
             </h2>
             <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                You will learn digital skills including social media management, content creation, and digital marketing. Everything is 100% legitimate and skill-based. No spam, no scams.
+                Digital skills: social media, content creation, digital marketing. 100% legitimate.
               </div>
             </div>
           </div>
@@ -892,7 +887,7 @@
             </h2>
             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                Most of our dedicated students see their first rewards within 4 weeks of consistent effort. Steady income growth typically follows in 2–3 months.
+                Most students see first rewards within 4 weeks; steady growth in 2–3 months.
               </div>
             </div>
           </div>
@@ -904,7 +899,7 @@
             </h2>
             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                Absolutely not! Our program is designed for beginners. We provide step-by-step guidance from absolute zero to becoming a confident digital earner.
+                No experience needed! Step-by-step guidance from zero to confident.
               </div>
             </div>
           </div>
@@ -916,7 +911,7 @@
             </h2>
             <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                You get daily mentorship via WhatsApp, access to a private community, and weekly strategy calls. We are with you at every step.
+                Daily mentorship, 24/7 WhatsApp, weekly calls & community.
               </div>
             </div>
           </div>
@@ -929,60 +924,58 @@
 <!-- CTA Section -->
 <section class="cta-section py-5">
   <div class="container text-center">
-    <h2 class="display-4 fw-bold mb-3" style="color:var(--white);">Ready to Transform Your Life?</h2>
-    <p class="fs-5 mb-5" style="color:var(--text-muted);">Join thousands of women on their journey to skill-based independence</p>
+    <h2 class="display-5 fw-bold mb-2" style="color:var(--black);">Ready to Transform Your Life?</h2>
+    <p class="mb-4" style="color:var(--text-secondary);">Join thousands of women on their journey</p>
     
-    <div class="cta-card p-4 p-md-5 mb-5 mx-auto" style="max-width: 800px;">
-      <h3 class="h4 fw-bold mb-4" style="color:var(--white);">📲 How to Get Started?</h3>
-      <p class="mb-4" style="color:var(--text-muted);">Bas apni journey start karne ke liye ye details taiyaar rakhiye:</p>
+    <div class="cta-card p-4 p-md-4 mb-4 mx-auto" style="max-width: 700px;">
+      <h3 class="h5 fw-bold mb-3" style="color:var(--black);">📲 How to Get Started?</h3>
+      <p class="mb-3 small" style="color:var(--text-secondary);">Bas apni journey start karne ke liye ye details taiyaar rakhiye:</p>
       
-      <div class="row g-3 mb-4 text-start">
-        <div class="col-md-4"><div class="info-box p-3 rounded"><strong>📋 Name:</strong> Full Name</div></div>
-        <div class="col-md-4"><div class="info-box p-3 rounded"><strong>🎂 Age:</strong> Your Age</div></div>
-        <div class="col-md-4"><div class="info-box p-3 rounded"><strong>💼 Profession:</strong> Current Status</div></div>
+      <div class="row g-2 mb-3 text-start">
+        <div class="col-md-4"><div class="info-box p-2 rounded"><strong>📋 Name</strong> Full Name</div></div>
+        <div class="col-md-4"><div class="info-box p-2 rounded"><strong>🎂 Age</strong> Your Age</div></div>
+        <div class="col-md-4"><div class="info-box p-2 rounded"><strong>💼 Profession</strong> Current Status</div></div>
       </div>
       
-      <button class="btn-primary-custom open-any glow-pulse" data-source="Final CTA" style="padding: 1.2rem 3rem;">
-        <i data-lucide="message-circle" width="24"></i>
+      <button class="btn-primary-custom open-any glow-pulse" data-source="Final CTA">
+        <i data-lucide="message-circle" width="18"></i>
         Message on WhatsApp Now
       </button>
     </div>
     
-    <p class="fs-6 mb-4" style="color:var(--text-muted);">
-      ✨ Empower her with skills • 🌈 Support her with vision • 🚀 Dreams to direction
+    <p class="small mb-3" style="color:var(--text-muted);">
+      ✨ Empower her with skills • 🚀 Dreams to direction
     </p>
     
-    <div class="mt-4">
-        <a href="https://www.instagram.com/mentoranjali_" target="_blank" class="insta-link">
-          <i data-lucide="instagram" width="20"></i>
-          Follow on Instagram @mentoranjali_
-        </a>
-    </div>
-    <div class="mt-4">
-      <button class="btn btn-outline-secondary btn-sm" id="privacyBtn" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: var(--text-muted);">
-        <i data-lucide="shield-check" width="14" style="margin-right: 4px;"></i> Privacy Policy
+    <a href="https://www.instagram.com/mentoranjali_" target="_blank" class="insta-link">
+      <i data-lucide="instagram" width="18"></i>
+      @mentoranjali_
+    </a>
+    <div class="mt-3">
+      <button class="btn btn-outline-secondary btn-sm" id="privacyBtn" style="font-size: 0.75rem; border-color: var(--border-color); color: var(--text-muted);">
+        Privacy Policy
       </button>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- Footer - NEWSLETTER REMOVED -->
 <footer class="footer">
   <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-4">
+    <div class="row g-4">
+      <div class="col-lg-6">
         <div class="footer-brand">Anjali Yadav</div>
         <p class="footer-text">
-          Empowering women to discover their true potential and achieve financial independence. Join our community of growth-minded individuals.
+          Empowering women to discover their true potential and achieve financial independence. Join our community today.
         </p>
         <div class="social-icons">
-          <a href="https://wa.me/917482067662" class="social-icon" target="_blank"><i data-lucide="message-circle" width="20"></i></a>
-          <a href="https://www.instagram.com/mentoranjali_" class="social-icon" target="_blank"><i data-lucide="instagram" width="20"></i></a>
-          <a href="#" class="social-icon"><i data-lucide="mail" width="20"></i></a>
+          <a href="https://wa.me/917482067662" class="social-icon" target="_blank"><i data-lucide="message-circle" width="18"></i></a>
+          <a href="https://www.instagram.com/mentoranjali_" class="social-icon" target="_blank"><i data-lucide="instagram" width="18"></i></a>
+          <a href="#" class="social-icon"><i data-lucide="mail" width="18"></i></a>
         </div>
       </div>
       
-      <div class="col-lg-2 offset-lg-2">
+      <div class="col-lg-3">
         <h5>Quick Links</h5>
         <ul class="footer-links">
           <li><a href="#home">Home</a></li>
@@ -992,13 +985,12 @@
         </ul>
       </div>
 
-      <div class="col-lg-4">
-        <h5>Newsletter</h5>
-        <p class="small" style="color: var(--text-muted);">Get tips on digital skills and mindset directly to your inbox.</p>
-        <form onsubmit="event.preventDefault();">
-          <input type="email" class="footer-input" placeholder="Your email address">
-          <button class="btn-subscribe">Subscribe</button>
-        </form>
+      <div class="col-lg-3">
+        <h5>Legal</h5>
+        <ul class="footer-links">
+          <li><a href="#" onclick="openPrivacy();return false;">Privacy Policy</a></li>
+          <li><a href="#" onclick="openPrivacy();return false;">Disclaimer</a></li>
+        </ul>
       </div>
     </div>
     <div class="copyright">
@@ -1019,14 +1011,12 @@
     </div>
     <div class="pp-body">
       <h3>Information We Collect</h3>
-      <p>We collect information you provide directly to us, such as your name, phone number, age, and profession when you contact us through WhatsApp or other channels.</p>
+      <p>We collect information you provide directly to us, such as your name, phone number, age, and profession when you contact us.</p>
       <h3>How We Use Your Information</h3>
-      <p>Your information is used solely to communicate with you about our training programs, provide customer support, and send updates about courses you've expressed interest in.</p>
+      <p>Your information is used solely to communicate with you about our training programs and provide customer support.</p>
       <h3>Data Protection</h3>
-      <p>We implement appropriate security measures to protect your personal information. Your data is never sold or shared with third parties for marketing purposes.</p>
-      <h3>Your Rights</h3>
-      <p>You have the right to access, correct, or delete your personal information at any time. Contact us to exercise these rights or for any privacy-related concerns.</p>
-      <div class="pp-footer">By using our services, you agree to this privacy policy. Last updated: January 2025</div>
+      <p>We implement appropriate security measures to protect your personal information. Your data is never sold to third parties.</p>
+      <div class="pp-footer">By using our services, you agree to this privacy policy.</div>
     </div>
   </div>
 </div>
@@ -1035,28 +1025,28 @@
 <div id="formContainer">
   <div class="card form-card border-0">
     <div class="card-body p-4 position-relative">
-      <button id="closeFormBtn" class="btn-close position-absolute top-0 end-0 m-3" style="filter:invert(1)" aria-label="Close"></button>
-      <div class="text-center mb-4">
-        <h2 class="h4 fw-bold mb-1" style="color:var(--white);">🚀 Start Your Journey</h2>
+      <button id="closeFormBtn" class="btn-close position-absolute top-0 end-0 m-3" aria-label="Close"></button>
+      <div class="text-center mb-3">
+        <h2 class="h5 fw-bold mb-1" style="color:var(--black);">🚀 Start Your Journey</h2>
         <p class="small" style="color:var(--text-muted);">Fill details to get started</p>
       </div>
       <form id="mainForm" novalidate>
         <input type="hidden" id="sourceInfo" name="sourceInfo">
-        <div class="row g-3">
+        <div class="row g-2">
           <div class="col-12">
-            <label class="form-label"><i data-lucide="user" style="width:16px;vertical-align:middle;margin-right:5px;"></i> Full Name *</label>
-            <input id="inp_name" type="text" class="form-control" required placeholder="Enter your full name">
+            <label class="form-label">Full Name *</label>
+            <input id="inp_name" type="text" class="form-control" required placeholder="Enter your name">
           </div>
           <div class="col-12">
-            <label class="form-label"><i data-lucide="phone" style="width:16px;vertical-align:middle;margin-right:5px;"></i> Phone *</label>
-            <input id="inp_phone" type="tel" class="form-control" required placeholder="10-digit phone number" maxlength="10">
+            <label class="form-label">Phone *</label>
+            <input id="inp_phone" type="tel" class="form-control" required placeholder="10-digit number" maxlength="10">
           </div>
           <div class="col-6">
-            <label class="form-label"><i data-lucide="calendar" style="width:16px;vertical-align:middle;margin-right:5px;"></i> Age *</label>
-            <input id="inp_age" type="number" class="form-control" required placeholder="Your age" min="15" max="65">
+            <label class="form-label">Age *</label>
+            <input id="inp_age" type="number" class="form-control" required min="15" max="65">
           </div>
           <div class="col-6">
-            <label class="form-label"><i data-lucide="users" style="width:16px;vertical-align:middle;margin-right:5px;"></i> Gender *</label>
+            <label class="form-label">Gender *</label>
             <select id="inp_gender" class="form-select" required>
               <option value="">Select</option>
               <option value="female">Female</option>
@@ -1065,18 +1055,18 @@
             </select>
           </div>
           <div class="col-12">
-            <label class="form-label"><i data-lucide="briefcase" style="width:16px;vertical-align:middle;margin-right:5px;"></i> Profession *</label>
+            <label class="form-label">Profession *</label>
             <select id="inp_profession" class="form-select" required>
-              <option value="">Select Profession</option>
+              <option value="">Select</option>
               <option>Student</option>
               <option>Homemaker</option>
               <option>Working Professional</option>
               <option>Other</option>
             </select>
           </div>
-          <div class="col-12 mt-3">
+          <div class="col-12">
             <button type="submit" class="btn-submit">
-              <i data-lucide="send" style="width:18px;vertical-align:middle;margin-right:5px;"></i>
+              <i data-lucide="send" style="width:16px;vertical-align:middle;margin-right:5px;"></i>
               Send to WhatsApp
             </button>
           </div>
@@ -1108,15 +1098,14 @@ const counterObserver=new IntersectionObserver(entries=>{
     if(entry.isIntersecting&&!entry.target.classList.contains('counted')){
       entry.target.classList.add('counted');
       const target=+entry.target.getAttribute('data-target');
-      const prefix=entry.target.getAttribute('data-prefix')||'';
       const suffix=entry.target.getAttribute('data-suffix')||'';
       let current=0;
-      const inc=Math.max(1,Math.floor(target/50));
+      const inc=Math.max(1,Math.floor(target/40));
       const timer=setInterval(()=>{
         current+=inc;
         if(current>=target){current=target;clearInterval(timer);}
-        entry.target.textContent=prefix+current.toLocaleString()+suffix;
-      },30);
+        entry.target.textContent=current.toLocaleString()+suffix;
+      },25);
     }
   });
 },{threshold:0.3});
@@ -1132,7 +1121,6 @@ const ppOverlay=document.getElementById('ppOverlay');
 const ppClose=document.getElementById('ppClose');
 const privacyBtn=document.getElementById('privacyBtn');
 
-// Config
 const SCRIPT_URL="https://script.google.com/macros/s/AKfycbxtNYqVxlzHv_NZAwx-jHU54MPZyR-Ss7yUtlkHTfnm2BN9cqbKqOwHtyLD6a4sjyCtpQ/exec";
 const WA_NUMBER_INT="917482067662";
 
@@ -1187,7 +1175,6 @@ mainForm.addEventListener('submit',e=>{
     return;
   }
 
-  // Send to Google Sheet
   const formData=new FormData();
   formData.append('name',name);
   formData.append('phone',phone);
@@ -1203,7 +1190,6 @@ mainForm.addEventListener('submit',e=>{
     mode:'no-cors'
   }).catch(err=>console.error('Sheet error:',err));
 
-  // WhatsApp redirect with details
   const message=encodeURIComponent(
     `Hello Ma'am,\n\nI am interested in your program. Here are my details:\n\nName: ${name}\nPhone: ${phone}\nAge: ${age}\nGender: ${gender}\nProfession: ${profession}\n\nPlease share next steps. Thank you!`
   );
@@ -1212,8 +1198,7 @@ mainForm.addEventListener('submit',e=>{
     fbq('track','Contact');
     fbq('track','Lead',{
       content_name:'WhatsApp Form Submission',
-      content_category:'Lead Generation',
-      content_source:sourceInfo.value
+      content_category:'Lead Generation'
     });
   }
 
@@ -1221,7 +1206,7 @@ mainForm.addEventListener('submit',e=>{
   closeForm();
 });
 
-// Smooth scroll for nav links
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
   anchor.addEventListener('click',function(e){
     e.preventDefault();
@@ -1232,7 +1217,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
   });
 });
 
-// Escape key to close
+// Escape key
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){
     closeForm();
