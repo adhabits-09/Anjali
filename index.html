@@ -219,12 +219,15 @@
       font-weight:800;
       font-family:'Playfair Display',serif;
     }
-    .hero-text-compact{
-      max-width:600px;
-      margin:0 auto 1.5rem;
-      font-size:1.25rem;
-      line-height:1.4;
-      color:var(--gray-400);
+    .hero-headline{
+      font-size:2.8rem;
+      font-weight:800;
+      line-height:1.2;
+      margin-bottom:1.5rem;
+      color:var(--white);
+    }
+    .hero-headline .highlight{
+      color:var(--purple-light);
     }
     .wa-btn{
       display:inline-flex;
@@ -689,6 +692,7 @@
     @media(max-width:768px){
       section{padding:60px 0;}
       .hero-section{padding:100px 20px 40px;}
+      .hero-headline{font-size:2rem;}
       .about-img{max-height:500px;}
       .feedback-item{width:260px;height:350px;}
       .counter{font-size:2rem;}
@@ -733,14 +737,10 @@
 <!-- Hero Section -->
 <section class="hero-section" id="home">
   <div class="container position-relative">
-    <div class="badge-custom animate-stagger glow-pulse mb-3" style="--order:1;">🚺 Women Only Community</div>
-    <h1 class="display-3 fw-bold gradient-text mb-2 animate-stagger" style="--order:2; font-size:3.5rem;">
-      Join <span class="counter" data-target="10000" data-suffix="+">0</span> Women
+   <h1 class="hero-headline animate-stagger" style="--order:2;">
+      Join over <span class="highlight">5000+</span> Working Professional, students and housewives who have successfully built their income online with
     </h1>
-    <p class="hero-text-compact animate-stagger" style="--order:3;">
-      Rising Together • From Homemaker to Skill-Based Growth
-    </p>
-    <button class="wa-btn open-any shine-effect glitch-effect animate-stagger" data-source="Hero Button" style="--order:4;">
+    <button class="wa-btn open-any shine-effect glitch-effect animate-stagger" data-source="Hero Button" style="--order:3;">
       <i data-lucide="message-circle" width="24"></i>
       Connect on WhatsApp
     </button>
@@ -977,7 +977,14 @@
         </div>
       </div>
       <div class="col-lg-4">
-    <div class="col-lg-4">
+        <h5>Subscribe us</h5>
+        <form onsubmit="event.preventDefault();alert('Subscribed!');">
+          <input type="text" class="footer-input" placeholder="Your Name" required>
+          <input type="email" class="footer-input" placeholder="Your Email" required>
+          <button type="submit" class="btn-subscribe">SUBSCRIBE</button>
+        </form>
+      </div>
+      <div class="col-lg-4">
         <h5>Privacy Pages</h5>
         <ul class="footer-links">
           <li><a href="#home">Home</a></li>
