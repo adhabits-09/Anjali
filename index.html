@@ -188,13 +188,13 @@
     /* Sections */
     section{padding:80px 0;position:relative;}
     .hero-section{
-      min-height:100vh;
+      min-height:auto;
       background:linear-gradient(135deg,rgba(15,23,42,0.9),rgba(30,41,59,0.95)),url('https://images.unsplash.com/photo-1551847677-dc82d764e1eb?w=1920&h=1080&fit=crop') center/cover;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
-      padding:120px 20px 80px;
+      padding:120px 20px 40px;
       position:relative;
       overflow:hidden;
     }
@@ -253,11 +253,11 @@
     .wa-btn>*{position:relative;z-index:1;}
 
     /* About Section */
-    .about-section{background:var(--dark-blue);}
+    .about-section{background:var(--dark-blue); padding: 60px 0;}
     .about-img{
       width:100%;
       height:auto;
-      max-height:500px;
+      max-height:600px;
       border-radius:20px;
       object-fit:cover;
       box-shadow:0 20px 40px rgba(0,0,0,0.3);
@@ -405,7 +405,7 @@
       right:0;
       width:50%;
       height:100%;
-      background:url('https://i.ibb.co/Y4s3KQtD/IMG-4950-JPG.jpg') center/cover;
+      background:url('https://i.ibb.co/PG2YhYC1/anjali-final-pic.jpg') center/cover;
       opacity:0.1;
       border-radius:30px 0 0 30px;
     }
@@ -688,8 +688,8 @@
 
     @media(max-width:768px){
       section{padding:60px 0;}
-      .hero-section{padding:100px 20px 60px;}
-      .about-img{max-height:400px;}
+      .hero-section{padding:100px 20px 40px;}
+      .about-img{max-height:500px;}
       .feedback-item{width:260px;height:350px;}
       .counter{font-size:2rem;}
       .wa-btn{width:100%;justify-content:center;}
@@ -752,38 +752,43 @@
   <div class="container">
     <div class="row g-4 align-items-center">
       <div class="col-lg-6 animate-stagger" style="--order:1;">
-        <img src="https://i.ibb.co/Y4s3KQtD/IMG-4950-JPG.jpg" alt="Anjali Yadav - Mentor" class="about-img" loading="lazy">
+        <img src="https://i.ibb.co/PG2YhYC1/anjali-final-pic.jpg" alt="Anjali Yadav - Sales & Productivity Coach" class="about-img" loading="lazy">
       </div>
       <div class="col-lg-6 animate-stagger about-content" style="--order:2;">
         <div class="badge-custom mb-3 glow-pulse">💫 Your Coach</div>
-        <h2 class="display-5 fw-bold mb-3" style="color:var(--white);">Hi, I'm Anjali Yadav</h2>
+        <h2 class="display-5 fw-bold mb-3" style="color:var(--white);">Hi, I'm Anjali</h2>
+        <h3 class="h4 mb-4" style="color:var(--purple-light);">Sales & Productivity Coach</h3>
+        
         <div class="mb-4">
-          <p class="fs-5 mb-2" style="color:var(--gray-400);">🏡 Ek homemaker se skill mentor tak ka safar</p>
-          <p class="fs-5 mb-2" style="color:var(--gray-400);">💻 Freelancer & Digital Skills Expert</p>
-          <p class="fs-5 mb-2" style="color:var(--gray-400);">🎯 My Vision: "Empowering Females to Empower"</p>
-          <p class="fs-5" style="color:var(--gray-400);">Ab aur bhi strong ban ke saath me growth karna chahti hoon - ready ho toh WhatsApp karein 👇</p>
+          <p class="mb-3" style="color:var(--gray-400);">With over a decade of experience in personal development and leadership coaching, I've had the privilege of helping thousands of individuals discover their true potential and build the confidence they need to succeed.</p>
+          
+          <p class="mb-3" style="color:var(--gray-400);">My journey began when I realized that many talented people were held back not by lack of skill, but by limiting beliefs and confidence issues. This inspired me to create practical, results-driven programs that transform lives.</p>
+          
+          <p class="mb-4" style="color:var(--gray-400);">Today, I'm passionate about empowering students, professionals, and entrepreneurs to break through their barriers and create the income and lifestyle they deserve.</p>
         </div>
+        
         <button class="wa-btn mb-4 open-any shine-effect glitch-effect" data-source="About Section">
           <i data-lucide="message-circle" width="20"></i>
           Connect on WhatsApp
         </button>
+        
         <div class="row g-3">
           <div class="col-md-4">
             <div class="stat-card shine-effect">
-              <div class="counter" data-target="5" data-suffix="+">0</div>
+              <div class="counter" data-target="10" data-suffix="+">0</div>
               <div class="text-muted small">Years Experience</div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="stat-card shine-effect">
-              <div class="counter" data-target="300" data-suffix="+">0</div>
-              <div class="text-muted small">Students Helped</div>
+              <div class="counter" data-target="1000" data-suffix="+">0</div>
+              <div class="text-muted small">Women Helped</div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="stat-card shine-effect">
-              <div class="counter" data-target="100000" data-prefix="₹">0</div>
-              <div class="text-muted small">Monthly Growth</div>
+              <div class="counter" data-target="100" data-suffix="%">0</div>
+              <div class="text-muted small">Success Rate</div>
             </div>
           </div>
         </div>
@@ -972,14 +977,7 @@
         </div>
       </div>
       <div class="col-lg-4">
-        <h5>Subscribe us</h5>
-        <form onsubmit="event.preventDefault();alert('Subscribed!');">
-          <input type="text" class="footer-input" placeholder="Your Name" required>
-          <input type="email" class="footer-input" placeholder="Your Email" required>
-          <button type="submit" class="btn-subscribe">SUBSCRIBE</button>
-        </form>
-      </div>
-      <div class="col-lg-4">
+    <div class="col-lg-4">
         <h5>Privacy Pages</h5>
         <ul class="footer-links">
           <li><a href="#home">Home</a></li>
