@@ -179,9 +179,9 @@
     /* MOBILE HEADLINE - 3 LINES */
     .hero-headline-mobile{
       display: none;
-      font-size:1.9rem;
+      font-size:1.75rem;
       font-weight:800;
-      line-height:1.2;
+      line-height:1.25;
       margin-bottom:0.8rem;
       color:var(--black);
       letter-spacing: -1px;
@@ -264,6 +264,9 @@
       border: 1px solid var(--border-color);
     }
     .about-content {padding-left: 1rem;}
+    .about-text-container {
+      padding: 0 15px;
+    }
     
     .stat-card{
       background: var(--white);
@@ -658,7 +661,7 @@
     /* Mobile Responsiveness */
     @media(max-width:768px){
       section{padding:50px 0;}
-      .hero-section{padding:90px 20px 40px; min-height: auto;}
+      .hero-section{padding:90px 15px 40px; min-height: auto;}
       
       /* SHOW MOBILE HEADLINE - 3 LINES */
       .hero-headline-desktop{
@@ -666,14 +669,45 @@
       }
       .hero-headline-mobile{
         display: block;
-        font-size: 1.75rem;
-        line-height: 1.25;
+        font-size: 1.7rem;
+        line-height: 1.3;
         margin-bottom: 0.6rem;
+        padding: 0 10px;
       }
       
       .hero-subheadline{
         font-size: 1rem;
         margin-bottom: 1.5rem;
+        padding: 0 10px;
+      }
+      
+      /* Add padding to containers so text doesn't cut */
+      .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+      
+      .about-content {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      
+      .about-text-container {
+        padding: 0 5px;
+      }
+      
+      .about-text-container p {
+        padding: 0 5px;
+      }
+      
+      /* Stats cards - stack vertically on mobile */
+      .stat-card {
+        margin-bottom: 10px;
+        padding: 1.2rem;
+      }
+      
+      .counter {
+        font-size: 2rem;
       }
       
       .btn-primary-custom, .btn-accent-custom{
@@ -681,17 +715,30 @@
         font-size:0.9rem;
       }
       
-      .about-content {padding-left: 0;}
       .feedback-item{width:240px;height:320px;}
-      .counter{font-size:1.8rem;}
       .step-card{padding:1.2rem;}
-      .stat-card{padding:1.2rem;}
       
       h2{font-size:1.6rem !important;}
       .pp-modal{width:92%;border-radius: 16px;}
       
       .navbar-brand{font-size:1.4rem;}
       .btn-nav{padding:0.4rem 1rem;font-size:0.85rem;}
+      
+      /* Ensure text doesn't overflow */
+      p, h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      
+      .row {
+        margin-left: -5px;
+        margin-right: -5px;
+      }
+      
+      .col-6, .col-4, .col-lg-3, .col-lg-4, .col-lg-6, .col-lg-7, .col-lg-8 {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
     }
     
     /* Desktop */
@@ -772,42 +819,45 @@
         <img src="https://i.ibb.co/PG2YhYC1/anjali-final-pic.jpg" alt="Anjali Yadav - Sales & Productivity Coach" class="about-img" loading="lazy">
       </div>
       <div class="col-lg-7 animate-stagger about-content" style="--order:2;">
-        <h2 class="display-6 fw-bold mb-2" style="color:var(--black);">Hi, I'm Anjali</h2>
-        <h3 class="h5 mb-3" style="color:var(--accent); font-weight: 500;">Sales & Productivity Coach</h3>
-        
-        <div class="mb-3">
-          <p class="mb-3" style="color:var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
-            With over a decade of experience in personal development and leadership coaching, I've had the privilege of helping thousands of individuals discover their true potential and build the confidence they need to succeed.
-          </p>
+        <div class="about-text-container">
+          <h2 class="display-6 fw-bold mb-2" style="color:var(--black);">Hi, I'm Anjali</h2>
+          <h3 class="h5 mb-3" style="color:var(--accent); font-weight: 500;">Sales & Productivity Coach</h3>
           
-          <p class="mb-3" style="color:var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
-            My journey began when I realized that many talented people were held back not by lack of skill, but by limiting beliefs and confidence issues. This inspired me to create practical, results-driven programs that transform lives.
-          </p>
+          <div class="mb-3">
+            <p class="mb-3" style="color:var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+              With over a decade of experience in personal development and leadership coaching, I've had the privilege of helping thousands of individuals discover their true potential and build the confidence they need to succeed.
+            </p>
+            
+            <p class="mb-3" style="color:var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+              My journey began when I realized that many talented people were held back not by lack of skill, but by limiting beliefs and confidence issues. This inspired me to create practical, results-driven programs that transform lives.
+            </p>
+            
+            <p class="mb-3" style="color:var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+              Today, I'm passionate about empowering students, professionals, and entrepreneurs to break through their barriers and create the income and lifestyle they deserve.
+            </p>
+          </div>
           
-          <p class="mb-3" style="color:var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
-            Today, I'm passionate about empowering students, professionals, and entrepreneurs to break through their barriers and create the income and lifestyle they deserve.
-          </p>
+          <button class="btn-accent-custom mb-4 open-any" data-source="About Section">
+            <i data-lucide="message-circle" width="18"></i>
+            Connect on WhatsApp
+          </button>
         </div>
         
-        <button class="btn-accent-custom mb-4 open-any" data-source="About Section">
-          <i data-lucide="message-circle" width="18"></i>
-          Connect on WhatsApp
-        </button>
-        
-        <div class="row g-2">
-          <div class="col-4">
+        <!-- Stats - Mobile: Stacked vertically, Desktop: Side by side -->
+        <div class="row g-2 stats-container">
+          <div class="col-12 col-md-4 mb-2 mb-md-0">
             <div class="stat-card">
               <div class="counter" data-target="10" data-suffix="+">0</div>
               <div class="text-muted small">Years Exp.</div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-12 col-md-4 mb-2 mb-md-0">
             <div class="stat-card">
               <div class="counter" data-target="5000" data-suffix="+">0</div>
               <div class="text-muted small">Women Helped</div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-12 col-md-4">
             <div class="stat-card">
               <div class="counter" data-target="100" data-suffix="%">0</div>
               <div class="text-muted small">Support</div>
@@ -822,7 +872,7 @@
 <!-- Feedback Section -->
 <section class="feedback-section" id="feedback">
   <div class="container-fluid px-3">
-    <div class="text-center mb-2">
+    <div class="text-center mb-2 px-2">
       <h2 class="text-center display-6 fw-bold mb-2" style="--order:1; color:var(--black);">Real Success Stories</h2>
       <p class="text-center mb-4" style="--order:2; color:var(--text-secondary); font-size: 0.95rem;">See authentic feedback from our thriving community</p>
     </div>
@@ -845,7 +895,7 @@
       </div>
     </div>
     
-    <div class="text-center mt-4">
+    <div class="text-center mt-4 px-2">
       <button class="btn-primary-custom open-any" data-source="Feedback Section">
         <i data-lucide="message-circle" width="18"></i>
         Join Our Success Stories
@@ -856,9 +906,9 @@
 
 <!-- Steps Section -->
 <section class="steps-section py-5">
-  <div class="container">
-    <h2 class="text-center display-6 fw-bold mb-2" style="color:var(--black);">What Happens When You Join?</h2>
-    <p class="text-center mb-4" style="color:var(--text-secondary); font-size: 0.95rem;">Your journey to financial independence starts here</p>
+  <div class="container px-3">
+    <h2 class="text-center display-6 fw-bold mb-2 px-2" style="color:var(--black);">What Happens When You Join?</h2>
+    <p class="text-center mb-4 px-2" style="color:var(--text-secondary); font-size: 0.95rem;">Your journey to financial independence starts here</p>
     
     <div class="row g-3">
       <div class="col-6 col-lg-3">
@@ -878,7 +928,7 @@
       <div class="col-6 col-lg-3">
         <div class="step-card">
           <div class="step-number">3</div>
-          <h3 class="h6 fw-bold mb-1">1:1 Personal Mentorship</h3>
+          <h3 class="h6 fw-bold mb-1">Daily Mentorship</h3>
           <p class="mb-0 small">24/7 support & community</p>
         </div>
       </div>
@@ -900,9 +950,9 @@
 </section>
 
 <!-- FAQ Section -->
-<section class="faq-section" id="faq">
+<section class="faq-section px-3" id="faq">
   <div class="container">
-    <div class="text-center mb-4">
+    <div class="text-center mb-4 px-2">
         <h2 class="display-6 fw-bold" style="color:var(--black);">Frequently Asked <span style="color:var(--accent);">Questions</span></h2>
     </div>
     
@@ -965,17 +1015,17 @@
 
 <!-- CTA Section -->
 <section class="cta-section py-5">
-  <div class="container text-center">
-    <h2 class="display-5 fw-bold mb-2" style="color:var(--black);">Ready to Transform Your Life?</h2>
-    <p class="mb-4" style="color:var(--text-secondary);">Join thousands of women on their journey</p>
+  <div class="container text-center px-3">
+    <h2 class="display-5 fw-bold mb-2 px-2" style="color:var(--black);">Ready to Transform Your Life?</h2>
+    <p class="mb-4 px-2" style="color:var(--text-secondary);">Join thousands of women on their journey</p>
     
     <div class="cta-card p-4 p-md-4 mb-4 mx-auto" style="max-width: 700px;">
-      <h3 class="h5 fw-bold mb-3" style="color:var(--black);">📲 How to Get Started?</h3>
-      <p class="mb-3 small" style="color:var(--text-secondary);">Bas apni journey start karne ke liye ye details taiyaar rakhiye:</p>
+      <h3 class="h5 fw-bold mb-3 px-2" style="color:var(--black);">📲 How to Get Started?</h3>
+      <p class="mb-3 small px-2" style="color:var(--text-secondary);">Bas apni journey start karne ke liye ye details taiyaar rakhiye:</p>
       
-      <div class="row g-2 mb-3 text-start">
-        <div class="col-md-4"><div class="info-box p-2 rounded"><strong>📋 Name</strong> Full Name</div></div>
-        <div class="col-md-4"><div class="info-box p-2 rounded"><strong>🎂 Age</strong> Your Age</div></div>
+      <div class="row g-2 mb-3 text-start px-1">
+        <div class="col-md-4 mb-2 mb-md-0"><div class="info-box p-2 rounded"><strong>📋 Name</strong> Full Name</div></div>
+        <div class="col-md-4 mb-2 mb-md-0"><div class="info-box p-2 rounded"><strong>🎂 Age</strong> Your Age</div></div>
         <div class="col-md-4"><div class="info-box p-2 rounded"><strong>💼 Profession</strong> Current Status</div></div>
       </div>
       
@@ -985,7 +1035,7 @@
       </button>
     </div>
     
-    <p class="small mb-3" style="color:var(--text-muted);">
+    <p class="small mb-3 px-2" style="color:var(--text-muted);">
       ✨ Empower her with skills • 🚀 Dreams to direction
     </p>
     
@@ -1003,14 +1053,14 @@
 
 <!-- Footer -->
 <footer class="footer">
-  <div class="container">
+  <div class="container px-3">
     <div class="row g-4">
       <div class="col-lg-6">
         <div class="footer-brand">Anjali Yadav</div>
-        <p class="footer-text">
+        <p class="footer-text px-1">
           Empowering women to discover their true potential and achieve financial independence. Join our community today.
         </p>
-        <div class="social-icons">
+        <div class="social-icons px-1">
           <a href="https://wa.me/917482067662" class="social-icon" target="_blank"><i data-lucide="message-circle" width="18"></i></a>
           <a href="https://www.instagram.com/mentoranjali_" class="social-icon" target="_blank"><i data-lucide="instagram" width="18"></i></a>
           <a href="#" class="social-icon"><i data-lucide="mail" width="18"></i></a>
