@@ -19,7 +19,7 @@
   <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
-  <!-- Meta Pixel -->
+  <!-- Meta Pixel - OPTIMIZED: Sirf PageView on load -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -37,19 +37,14 @@
 
   <style>
     :root{
-      /* LIGHT/WHITE THEME */
       --white: #ffffff;
       --off-white: #f8f9fa;
       --light-gray: #f1f3f4;
       --border-color: #e5e7eb;
-      
-      /* TEXT - BLACK */
       --black: #000000;
       --text-dark: #111111;
       --text-secondary: #4b5563;
       --text-muted: #6b7280;
-
-      /* ACCENT - Purple retained */
       --accent: #7c3aed;
       --accent-light: #8b5cf6;
       --accent-glow: rgba(124, 58, 237, 0.3);
@@ -65,7 +60,6 @@
       overflow-x:hidden;
     }
 
-    /* Navbar */
     .navbar{
       background: transparent;
       padding:1rem 0;
@@ -133,7 +127,6 @@
       transform:translateY(-2px);
     }
 
-    /* Animations */
     @keyframes pulseGlow {
       0%,100%{box-shadow:0 0 10px var(--accent-glow);}
       50%{box-shadow:0 0 20px var(--accent);}
@@ -149,10 +142,8 @@
     .animate-fade-in{animation:fadeInUp .6s ease-out forwards;opacity:0;}
     .animate-stagger{animation:fadeInUp .6s ease-out forwards;animation-delay:calc(var(--order) * .1s);opacity:0;}
 
-    /* Sections */
     section{padding:60px 0;position:relative;}
     
-    /* HERO - WHITE THEME */
     .hero-section{
       min-height: 100vh;
       background: linear-gradient(to bottom, rgba(255,255,255,0.9), var(--white)), url('https://images.unsplash.com/photo-1551847677-dc82d764e1eb?w=1920&h=1080&fit=crop') center/cover;
@@ -165,7 +156,6 @@
       overflow:hidden;
     }
     
-    /* DESKTOP HEADLINE */
     .hero-headline-desktop{
       display: block;
       font-size:2.8rem;
@@ -176,7 +166,6 @@
       letter-spacing: -1px;
     }
     
-    /* MOBILE HEADLINE - 3 LINES */
     .hero-headline-mobile{
       display: none;
       font-size:1.75rem;
@@ -194,7 +183,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* Sub-headline styling */
     .hero-subheadline{
       font-size:1.2rem;
       font-weight:400;
@@ -249,7 +237,6 @@
       color: var(--white);
     }
 
-    /* About Section */
     .about-section{
       background: var(--off-white); 
       border-top: 1px solid var(--border-color);
@@ -291,7 +278,6 @@
     }
     .stat-card .text-muted{color:var(--text-muted) !important; font-size: 0.85rem;}
 
-    /* Feedback Section */
     .feedback-section{
       background:var(--white);
       overflow:hidden;
@@ -338,7 +324,6 @@
       display:block;
     }
 
-    /* Steps Section */
     .steps-section{
       background: var(--off-white);
     }
@@ -372,7 +357,6 @@
     .step-card h3{color:var(--black); font-size: 1.1rem; font-weight: 700;}
     .step-card p{color:var(--text-secondary); font-size: 0.9rem;}
 
-    /* FAQ Section */
     .faq-section{background:var(--white);}
     .accordion-item{
       background: var(--off-white);
@@ -401,7 +385,6 @@
       font-size: 0.9rem;
     }
 
-    /* CTA Section */
     .cta-section{
       background: linear-gradient(180deg, var(--off-white) 0%, var(--white) 100%);
       position:relative;
@@ -441,7 +424,6 @@
       color: var(--black);
     }
 
-    /* Form Popup */
     .form-backdrop{
       position:fixed;inset:0;
       background:rgba(0,0,0,.8);
@@ -507,7 +489,6 @@
       transform:translateY(-2px);
     }
 
-    /* Privacy Policy Modal */
     .pp-overlay{
       position:fixed;
       inset:0;
@@ -586,7 +567,6 @@
       color:var(--text-muted);
     }
 
-    /* Footer */
     .footer{
       background: var(--black);
       padding:50px 0 25px;
@@ -658,12 +638,10 @@
       font-size:0.85rem;
     }
 
-    /* Mobile Responsiveness */
     @media(max-width:768px){
       section{padding:50px 0;}
       .hero-section{padding:90px 15px 40px; min-height: auto;}
       
-      /* SHOW MOBILE HEADLINE - 3 LINES */
       .hero-headline-desktop{
         display: none;
       }
@@ -681,7 +659,6 @@
         padding: 0 10px;
       }
       
-      /* Add padding to containers so text doesn't cut */
       .container {
         padding-left: 15px !important;
         padding-right: 15px !important;
@@ -700,7 +677,6 @@
         padding: 0 5px;
       }
       
-      /* Stats cards - stack vertically on mobile */
       .stat-card {
         margin-bottom: 10px;
         padding: 1.2rem;
@@ -724,7 +700,6 @@
       .navbar-brand{font-size:1.4rem;}
       .btn-nav{padding:0.4rem 1rem;font-size:0.85rem;}
       
-      /* Ensure text doesn't overflow */
       p, h1, h2, h3, h4, h5, h6 {
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -741,7 +716,6 @@
       }
     }
     
-    /* Desktop */
     @media(min-width:769px){
       .hero-headline-desktop{
         display: block;
@@ -785,25 +759,21 @@
 <section class="hero-section" id="home">
   <div class="container position-relative">
     
-    <!-- DESKTOP HEADLINE -->
     <h1 class="hero-headline-desktop animate-stagger" style="--order:1;">
       Join over <span class="highlight">5000+</span> Working<br>
       Professional, students<br>
       and housewives
     </h1>
     
-    <!-- MOBILE HEADLINE - EXACT 3 LINES -->
     <h1 class="hero-headline-mobile animate-stagger" style="--order:1;">
       Join over <span class="highlight">5000+</span> Working<br>
       Professional, students and housewives
     </h1>
     
-    <!-- SUB-HEADLINE -->
     <p class="hero-subheadline animate-stagger" style="--order:2;">
       who have successfully built their income online
     </p>
     
-    <!-- BUTTON -->
     <button class="btn-primary-custom open-any animate-stagger" data-source="Hero Button" style="--order:3;">
       <i data-lucide="message-circle" width="18"></i>
       Connect on WhatsApp
@@ -843,7 +813,6 @@
           </button>
         </div>
         
-        <!-- Stats - Mobile: Stacked vertically, Desktop: Side by side -->
         <div class="row g-2 stats-container">
           <div class="col-12 col-md-4 mb-2 mb-md-0">
             <div class="stat-card">
@@ -887,7 +856,6 @@
         <div class="feedback-item"><img src="https://i.ibb.co/n8BtYQyv/IMG-8815.png" alt="Success 6" loading="lazy"></div>
         <div class="feedback-item"><img src="https://i.ibb.co/N6c4w7Nx/IMG-8816.jpg" alt="Success 7" loading="lazy"></div>
         <div class="feedback-item"><img src="https://i.ibb.co/Gvg3r43T/IMG-8817.jpg" alt="Success 8" loading="lazy"></div>
-        <!-- Duplicate -->
         <div class="feedback-item"><img src="https://i.ibb.co/231M53c0/IMG-8687.png" alt="Success 1" loading="lazy"></div>
         <div class="feedback-item"><img src="https://i.ibb.co/84GMLftq/IMG-8689.png" alt="Success 2" loading="lazy"></div>
         <div class="feedback-item"><img src="https://i.ibb.co/BV1HvYw1/IMG-8754.jpg" alt="Success 3" loading="lazy"></div>
@@ -1254,6 +1222,7 @@ document.addEventListener('click',e=>{
   }
 });
 
+// OPTIMIZED: Sirf EK event track hoga - Contact (Lead hata diya)
 mainForm.addEventListener('submit',e=>{
   e.preventDefault();
   const name=document.getElementById('inp_name').value.trim();
@@ -1286,11 +1255,13 @@ mainForm.addEventListener('submit',e=>{
     `Hello Ma'am,\n\nI am interested in your program. Here are my details:\n\nName: ${name}\nPhone: ${phone}\nAge: ${age}\nGender: ${gender}\nProfession: ${profession}\n\nPlease share next steps. Thank you!`
   );
 
+  // SIRF EK EVENT - Contact (Lead hata diya hai)
   if(typeof fbq!=='undefined'){
-    fbq('track','Contact');
-    fbq('track','Lead',{
-      content_name:'WhatsApp Form Submission',
-      content_category:'Lead Generation'
+    fbq('track', 'Contact', {
+      content_name: 'WhatsApp Lead Form',
+      content_category: sourceInfo.value || 'Website',
+      value: 0.00,
+      currency: 'INR'
     });
   }
 
